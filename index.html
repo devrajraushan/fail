@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="https://smtpjs.com/v3/smtp.js">
+    </script>
+    <link rel="icon" href="One.png" type="img/png">
+    <title>Contact Us</title>
+</head>
+<body>
+  <div class="form">
+    <form action="#" method="post"  >
+        <label id="label">Full Name<i>*</i></label><br />
+        <input type="text" name="Firstuser" class="first" placeholder="First Name" id="name">
+        <input type="text" name="Lastuser" class="last" placeholder="Last Name">
+        <br />
+        <label>Email<i>*</i></label> <br />
+        <input type="email" name="email" class="email" id="email" >
+        <br />
+        <label>Subject</label><br>
+        <select name="choose" class="select" id="subject">
+            <option value="advertise">Advertise</option>
+            <option value="partnership">Partnership</option>
+            <option value="general">General</option>
+        </select>
+        <br />
+        <label>Your Message<i>*</i></label><br />
+        <textarea rows="8" cols="48" id="mess"></textarea><br />
+        <input type="submit" value="submit" onclick="send()" />
+
+    </form>
+
+
+  </div>
+  <script> 
+   function send(){
+    
+    Email.send({
+    Host : "smtp.gmail.com",
+    Username : "sroy43505@gmail.com",
+    Password : "123456dev",
+    To : 'sroy43505@gmail.com',
+    From : document.getElementById("email").value,
+    Subject : "This is the subject",
+    Body : "And this is the body"
+}).then(
+  message => alert("mail sent")
+);
+
+   }
+  </script>
+
+</body>
+</html>
